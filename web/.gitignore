@@ -1,0 +1,15 @@
+# Node
+node_modules/
+.next/
+.env.local
+.env
+.DS_Store
+*.log
+
+# Build output
+out/
+build/
+coverage/
+
+# OS
+Thumbs.db

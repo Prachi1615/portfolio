@@ -1,0 +1,338 @@
+import React, { useEffect, useState } from "react";
+import { interests } from "../interests-icons";
+import { skills } from "../skills-icons";
+
+const TAG_ORDER = [
+  "Education",
+  "Experience",
+  "Skill",
+  "Certification",
+  "Hackathon",
+  "project", "work", "portfolio"
+];
+
+function groupByTag(pages) {
+  const groups = {};
+  pages.forEach((page) => {
+    const tags = page.properties.Tags.multi_select.map((t) => t.name);
+    const tag = TAG_ORDER.find((orderTag) => tags.includes(orderTag)) || "Other";
+    if (!groups[tag]) groups[tag] = [];
+    groups[tag].push(page);
+  });
+  return groups;
+}
+
+export default function Home() {
+  const [pages, setPages] = useState([]);
+
+  useEffect(() => {
+    async function fetchPages() {
+      const res = await fetch("/api/portfolio");
+      const data = await res.json();
+      setPages(data);
+    }
+    fetchPages();
+  }, []);
+
+  const groups = groupByTag(pages);
+
+  return (
+    <>
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+          background: #f6f8fa;
+          font-family: 'Inter', sans-serif;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: none; }
+        }
+        @keyframes bounce {
+          0% { transform: translateY(0); }
+          30% { transform: translateY(-10px); }
+          50% { transform: translateY(0); }
+        }
+      `}</style>
+      <div style={{ maxWidth: 800, margin: "40px auto", background: "#fff", borderRadius: 16, boxShadow: "0 4px 24px rgba(0,0,0,0.07)", padding: 32 }}>
+        <h1 style={{ textAlign: "center", fontSize: 38, fontWeight: 700, marginBottom: 18, color: "#222" }}>My Portfolio</h1>
+        {/* About Me Section */}
+        <section
+          style={{
+            margin: "0 auto 36px auto",
+            background: "linear-gradient(120deg, #f0abfc 0%, #bae6fd 50%, #bbf7d0 100%)",
+            borderRadius: 18,
+            boxShadow: "0 6px 32px rgba(79,70,229,0.13)",
+            padding: 38,
+            textAlign: "center",
+            position: "relative",
+            overflow: "hidden",
+            animation: "fadeIn 0.9s cubic-bezier(.45,1.1,.45,1)"
+          }}
+        >
+          <div style={{
+            position: "absolute",
+            top: 0, left: 0, width: "100%", height: "100%",
+            background: "radial-gradient(circle at 70% 30%, #fef9c3 0%, transparent 60%)",
+            opacity: 0.4,
+            zIndex: 0
+          }} />
+          <h2 style={{ fontSize: 28, fontWeight: 800, color: "#4f46e5", marginBottom: 10, letterSpacing: 0.5, zIndex: 1, position: "relative" }}>
+            👋 Hi, I'm Prachi!
+          </h2>
+          <div style={{ fontSize: 18, color: "#0284c7", marginBottom: 16, fontWeight: 600, zIndex: 1, position: "relative", letterSpacing: 0.2 }}>
+            Problem Solver · Community Builder · Content Creator
+          </div>
+          <div style={{ color: "#444", fontSize: 17, margin: "0 auto 18px auto", maxWidth: 620, zIndex: 1, position: "relative", lineHeight: 1.7 }}>
+            I’m a problem solver who thrives on innovation—and keeping my inner nerd happy! With a background in <b>AI, software engineering, and cloud technologies</b>, I love building and experimenting with cutting-edge solutions.<br /><br />
+            Beyond coding, I’m passionate about <b>developer communities</b> and knowledge sharing. As an <b>IEEE Chair</b>, <b>Toastmasters President</b>, and <b>GDG Organizer</b>, I actively engage in tech discussions, events, and networking to learn and contribute. I also enjoy writing about <b>AI, cloud, and emerging technologies</b> to break down complex topics for a wider audience.<br /><br />
+            <span style={{ color: "#4f46e5", fontWeight: 700 }}>🏆 Hackathon wins</span> @ Berkeley | ETHGlobal | Women in RAG<br />
+            <span style={{ color: "#0284c7", fontWeight: 700 }}>📢 Tech Enthusiast</span> | AI, Cloud, and Developer Tooling<br />
+            <span style={{ color: "#f59e42", fontWeight: 700 }}>✍️ Content Creator</span> | Blogging on AI, DevOps, and Open Source<br /><br />
+            Outside of tech, I love <b>singing</b>, <b>badminton</b>, <b>pickleball</b>, <b>baking</b>, <b>sketching</b>, <b>photography</b>, <b>travelling</b>, <b>going to events</b>, <b>hackathons</b>, <b>bootcamps</b>, and <b>hosting & organizing events</b>.<br />
+            Life's an adventure—let's make it memorable together!<br /><br />
+            <span style={{ fontWeight: 600, color: "#10b981" }}>Excited to connect with fellow engineers, developers, and tech enthusiasts—let’s build something amazing!</span>
+          </div>
+          <a
+            href="https://calendly.com/prachi1615/new-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              margin: "20px auto 28px auto",
+              padding: "13px 32px",
+              fontSize: 18,
+              fontWeight: 700,
+              color: "#fff",
+              background: "linear-gradient(90deg,#4f46e5 0%,#06b6d4 100%)",
+              border: "none",
+              borderRadius: 30,
+              boxShadow: "0 2px 12px rgba(79,70,229,0.11)",
+              textDecoration: "none",
+              transition: "background 0.18s, transform 0.15s, box-shadow 0.18s",
+              cursor: "pointer",
+              zIndex: 1,
+              position: "relative"
+            }}
+            onMouseOver={e => {
+              e.currentTarget.style.background = "linear-gradient(90deg,#06b6d4 0%,#4f46e5 100%)";
+              e.currentTarget.style.transform = "scale(1.06)";
+              e.currentTarget.style.boxShadow = "0 6px 28px rgba(6,182,212,0.17)";
+            }}
+            onMouseOut={e => {
+              e.currentTarget.style.background = "linear-gradient(90deg,#4f46e5 0%,#06b6d4 100%)";
+              e.currentTarget.style.transform = "none";
+              e.currentTarget.style.boxShadow = "0 2px 12px rgba(79,70,229,0.11)";
+            }}
+          >
+            📅 Schedule a Call
+          </a>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: 28,
+              marginTop: 8,
+              zIndex: 1,
+              position: "relative"
+            }}
+          >
+            {interests.map(({ name, icon }) => (
+              <div
+                key={name}
+                tabIndex={0}
+                style={{
+                  cursor: "pointer",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  background: "rgba(255,255,255,0.95)",
+                  borderRadius: 14,
+                  padding: "18px 22px 12px 22px",
+                  boxShadow: "0 2px 12px rgba(99,102,241,0.13)",
+                  transition: "transform 0.18s, box-shadow 0.18s, background 0.18s",
+                  outline: "none",
+                  willChange: "transform"
+                }}
+                onMouseOver={e => {
+                  e.currentTarget.style.transform = "translateY(-8px) scale(1.09)";
+                  e.currentTarget.style.boxShadow = "0 12px 36px rgba(99,102,241,0.18)";
+                  e.currentTarget.style.background = "#f0f4ff";
+                  e.currentTarget.firstChild.style.animation = "bounce 0.5s";
+                }}
+                onMouseOut={e => {
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(99,102,241,0.13)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.95)";
+                  e.currentTarget.firstChild.style.animation = "none";
+                }}
+                onFocus={e => {
+                  e.currentTarget.style.transform = "translateY(-8px) scale(1.09)";
+                  e.currentTarget.style.boxShadow = "0 12px 36px rgba(99,102,241,0.18)";
+                  e.currentTarget.style.background = "#f0f4ff";
+                  e.currentTarget.firstChild.style.animation = "bounce 0.5s";
+                }}
+                onBlur={e => {
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(99,102,241,0.13)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.95)";
+                  e.currentTarget.firstChild.style.animation = "none";
+                }}
+                onClick={e => {
+                  // Confetti burst effect
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const confetti = document.createElement("div");
+                  confetti.style.position = "fixed";
+                  confetti.style.left = rect.left + rect.width/2 + "px";
+                  confetti.style.top = rect.top + rect.height/2 + "px";
+                  confetti.style.pointerEvents = "none";
+                  confetti.style.zIndex = 9999;
+                  for (let i = 0; i < 18; i++) {
+                    const dot = document.createElement("div");
+                    dot.style.position = "absolute";
+                    dot.style.width = "10px";
+                    dot.style.height = "10px";
+                    dot.style.borderRadius = "50%";
+                    dot.style.background = `hsl(${Math.random()*360},90%,70%)`;
+                    dot.style.left = "-5px";
+                    dot.style.top = "-5px";
+                    dot.style.transform = `translate(0,0)`;
+                    dot.style.transition = "transform 0.7s cubic-bezier(.2,1.2,.3,1)";
+                    confetti.appendChild(dot);
+                    setTimeout(() => {
+                      const angle = (i/18)*2*Math.PI;
+                      const dist = 50+Math.random()*30;
+                      dot.style.transform = `translate(${Math.cos(angle)*dist}px,${Math.sin(angle)*dist}px)`;
+                      dot.style.opacity = 0;
+                    }, 30);
+                  }
+                  document.body.appendChild(confetti);
+                  setTimeout(() => { confetti.remove(); }, 900);
+                }}
+              >
+                <span style={{ display: "inline-block" }}>{icon}</span>
+                <span style={{ marginTop: 10, fontSize: 16, fontWeight: 700, color: "#4f46e5", letterSpacing: 0.2 }}>{name}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+        {/* Technical Skills Section */}
+        <section
+          style={{
+            margin: "0 auto 36px auto",
+            background: "linear-gradient(120deg, #e0e7ff 0%, #bae6fd 50%, #bbf7d0 100%)",
+            borderRadius: 18,
+            boxShadow: "0 6px 32px rgba(79,70,229,0.09)",
+            padding: 32,
+            textAlign: "center",
+            position: "relative",
+            overflow: "hidden",
+            animation: "fadeIn 0.9s cubic-bezier(.45,1.1,.45,1)"
+          }}
+        >
+          <h2 style={{ fontSize: 26, fontWeight: 800, color: "#0284c7", marginBottom: 10, letterSpacing: 0.5, zIndex: 1, position: "relative" }}>
+            💻 Technical Skills
+          </h2>
+          <div style={{ color: "#555", fontSize: 16, marginBottom: 18, maxWidth: 600, marginLeft: "auto", marginRight: "auto" }}>
+            A blend of modern technologies, frameworks, and tools I use to build, deploy, and scale software.
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+              gap: 28,
+              justifyItems: "center",
+              alignItems: "center",
+              margin: "0 auto",
+              maxWidth: 700
+            }}
+          >
+            {skills.map(({ name, icon }) => (
+              <div
+                key={name}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  background: "rgba(255,255,255,0.97)",
+                  borderRadius: 14,
+                  padding: "18px 8px 12px 8px",
+                  boxShadow: "0 2px 12px rgba(6,182,212,0.09)",
+                  transition: "transform 0.18s, box-shadow 0.18s, background 0.18s",
+                  outline: "none",
+                  willChange: "transform",
+                  minWidth: 110,
+                  marginBottom: 2
+                }}
+                tabIndex={0}
+                onMouseOver={e => {
+                  e.currentTarget.style.transform = "translateY(-7px) scale(1.07)";
+                  e.currentTarget.style.boxShadow = "0 10px 28px rgba(6,182,212,0.13)";
+                  e.currentTarget.style.background = "#f0faff";
+                }}
+                onMouseOut={e => {
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(6,182,212,0.09)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.97)";
+                }}
+                onFocus={e => {
+                  e.currentTarget.style.transform = "translateY(-7px) scale(1.07)";
+                  e.currentTarget.style.boxShadow = "0 10px 28px rgba(6,182,212,0.13)";
+                  e.currentTarget.style.background = "#f0faff";
+                }}
+                onBlur={e => {
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(6,182,212,0.09)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.97)";
+                }}
+              >
+                <span style={{ display: "inline-block", marginBottom: 7 }}>{icon}</span>
+                <span style={{ marginTop: 0, fontSize: 15, fontWeight: 700, color: "#0284c7", letterSpacing: 0.2 }}>{name}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+        {TAG_ORDER.map((tag) => (
+          groups[tag] && (
+            <div key={tag} style={{ marginBottom: 36 }}>
+              <h2 style={{ fontSize: 24, fontWeight: 700, color: "#4f46e5", marginBottom: 16, borderBottom: "1px solid #e5e7eb", paddingBottom: 4 }}>{tag}</h2>
+              <div style={{ display: "grid", gap: 18 }}>
+                {groups[tag].map((page) => {
+                  const title = page.properties.Name.title[0]?.text.content;
+                  const url = page.url;
+                  const desc = page.properties.Description.rich_text[0]?.text.content || "";
+                  return (
+                    <a
+                      key={page.id}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "block",
+                        background: "#f3f4f6",
+                        borderRadius: 10,
+                        padding: "18px 22px",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+                        textDecoration: "none",
+                        color: "#222",
+                        transition: "box-shadow 0.2s, background 0.2s",
+                        border: "1px solid #e5e7eb"
+                      }}
+                      onMouseOver={e => e.currentTarget.style.background="#e0e7ff"}
+                      onMouseOut={e => e.currentTarget.style.background="#f3f4f6"}
+                    >
+                      <div style={{ fontSize: 20, fontWeight: 600, marginBottom: desc ? 4 : 0 }}>{title}</div>
+                      {desc && <div style={{ color: "#444", fontSize: 15 }}>{desc}</div>}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          )
+        ))}
+      </div>
+    </>
+  );
+}
+
