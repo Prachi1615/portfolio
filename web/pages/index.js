@@ -197,7 +197,7 @@ export default function Home() {
   </div>
   <div style={{ color: "#444", fontSize: 17, margin: "0 auto 18px auto", maxWidth: 620, zIndex: 1, position: "relative", lineHeight: 1.7 }}>
     I’m not just a software engineer—I’m a builder,and relentless optimist driven by the belief that technology can change lives. My journey spans <b>AI, cloud, and distributed systems</b>, but what truly excites me is making a real-world impact and empowering those around me.<br /><br />
-    Whether I’m leading as <b>IEEE Chair (Student Branch San Francisco Bay University)</b>, President st Toastmasters Club (Soaring Eagles),organizing events, or writing about <b>GenAI</b>, I thrive on collaboration and creativity. I turn cutting-edge tech into practical solutions—fast—and love making complex topics accessible (catch me blogging or speaking at meetups!).<br /><br />
+    Whether I’m leading as <b>IEEE Chair (Student Branch San Francisco Bay University)</b>, President st Toastmasters Club (Soaring Eagles),organizing events, or writing about <b>GenAI</b>, I thrive on collaboration and creativity. I turn cutting-edge tech into practical solutions—fast—and love making complex topics accessible (catch me at events, conferences and hackathons during weekends).<br /><br />
     <span style={{ color: "#4f46e5", fontWeight: 700 }}>🏆 Hackathon Winner</span> @ Berkeley | ETHGlobal | Women in RAG<br />
     <span style={{ color: "#0284c7", fontWeight: 700 }}>🌐 Community Builder</span> | Toastmasters | GDG | IEEE<br />
     <span style={{ color: "#f59e42", fontWeight: 700 }}>✍️ Content Creator</span> | AI, DevOps, Open Source<br /><br />
