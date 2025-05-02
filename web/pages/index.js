@@ -8,6 +8,8 @@ const TAG_ORDER = [
   "Education",
   "Experience",
   "Projects",
+  "Community Building",
+  "Volunteer Work",
   "Certification",
   "Hackathon"
 ];
@@ -340,8 +342,9 @@ export default function Home() {
               <div style={{ display: "grid", gap: 18 }}>
                 {groups[tag].map((page) => {
                   const title = page.properties.Name.title[0]?.text.content;
-                  const url = page.url;
+                  const url = page.properties.Link.url;
                   const desc = page.properties.Description.rich_text[0]?.text.content || "";
+                  const date = page.properties.Date?.date?.start;
                   return (
                     <a
                       key={page.id}
@@ -362,7 +365,15 @@ export default function Home() {
                       onMouseOver={e => e.currentTarget.style.background="#e0e7ff"}
                       onMouseOut={e => e.currentTarget.style.background="#f3f4f6"}
                     >
-                      <div style={{ fontSize: 20, fontWeight: 600, marginBottom: desc ? 4 : 0 }}>{title}</div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: desc ? 4 : 0 }}>
+  <span style={{ fontSize: 20, fontWeight: 600 }}>{title}</span>
+  {date && (
+    <span style={{ fontSize: 13, color: '#666', fontWeight: 500, marginLeft: 8, background: '#e0e7ff', borderRadius: 6, padding: '2px 8px' }}>
+      {new Date(date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
+    </span>
+  )}
+  <span style={{ marginLeft: 'auto', fontSize: 18, color: '#818cf8' }} title="Open Notion page">↗</span>
+</div>
                       {desc && <div style={{ color: "#444", fontSize: 15 }}>{desc}</div>}
                     </a>
                   );
