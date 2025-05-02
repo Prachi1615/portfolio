@@ -11,7 +11,8 @@ const TAG_ORDER = [
   "Community Building",
   "Volunteer Work",
   "Certification",
-  "Hackathon"
+  "Hackathon",
+  "Events"
 ];
 
 function groupByTag(pages) {
