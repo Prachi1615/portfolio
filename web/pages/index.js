@@ -318,7 +318,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-        {/* Technical Skills Section */}
+        {/* Technical Skills Section
         <section
           style={{
             margin: "0 auto 36px auto",
@@ -333,7 +333,7 @@ export default function Home() {
           }}
         >
           
-        </section>
+        </section> */}
 
         {TAG_ORDER.filter(tag => tag !== 'Skill').map((tag) => (
           groups[tag] && (
@@ -367,9 +367,16 @@ export default function Home() {
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: desc ? 4 : 0 }}>
   <span style={{ fontSize: 20, fontWeight: 600 }}>{title}</span>
-  {date && (
+  {(page.properties.Date?.date?.start || page.properties.Date?.date?.end) && (
     <span style={{ fontSize: 13, color: '#666', fontWeight: 500, marginLeft: 8, background: '#e0e7ff', borderRadius: 6, padding: '2px 8px' }}>
-      {new Date(date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
+      {page.properties.Date?.date?.start &&
+        new Date(page.properties.Date.date.start).toLocaleDateString(undefined, { year: 'numeric', month: 'short' })}
+      {page.properties.Date?.date?.end && (
+        <>
+          {page.properties.Date?.date?.start ? ' – ' : ''}
+          {new Date(page.properties.Date.date.end).toLocaleDateString(undefined, { year: 'numeric', month: 'short' })}
+        </>
+      )}
     </span>
   )}
   <span style={{ marginLeft: 'auto', fontSize: 18, color: '#818cf8' }} title="Open Notion page">↗</span>
