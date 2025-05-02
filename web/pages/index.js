@@ -197,7 +197,7 @@ export default function Home() {
   </div>
   <div style={{ color: "#444", fontSize: 17, margin: "0 auto 18px auto", maxWidth: 620, zIndex: 1, position: "relative", lineHeight: 1.7 }}>
     I’m not just a software engineer—I’m a builder,and relentless optimist driven by the belief that technology can change lives. My journey spans <b>AI, cloud, and distributed systems</b>, but what truly excites me is making a real-world impact and empowering those around me.<br /><br />
-    Whether I’m leading as <b>IEEE Chair</b>, organizing hackathons, or writing about <b>GenAI</b>, I thrive on collaboration and creativity. I turn cutting-edge tech into practical solutions—fast—and love making complex topics accessible (catch me blogging or speaking at meetups!).<br /><br />
+    Whether I’m leading as <b>IEEE Chair (Student Branch San Francisco Bay University)</b>, President st Toastmasters Club (Soaring Eagles),organizing events, or writing about <b>GenAI</b>, I thrive on collaboration and creativity. I turn cutting-edge tech into practical solutions—fast—and love making complex topics accessible (catch me blogging or speaking at meetups!).<br /><br />
     <span style={{ color: "#4f46e5", fontWeight: 700 }}>🏆 Hackathon Winner</span> @ Berkeley | ETHGlobal | Women in RAG<br />
     <span style={{ color: "#0284c7", fontWeight: 700 }}>🌐 Community Builder</span> | Toastmasters | GDG | IEEE<br />
     <span style={{ color: "#f59e42", fontWeight: 700 }}>✍️ Content Creator</span> | AI, DevOps, Open Source<br /><br />
@@ -390,7 +390,7 @@ export default function Home() {
             </div>
           )
         ))}
-        {/* --- Interests & Hobbies section now at the bottom --- */}
+        {/* --- Interests & Hobbies section now at the bottom ---
         <section style={{ margin: "56px auto 0 auto", background: "linear-gradient(120deg, #e0e7ff 0%, #bae6fd 50%, #bbf7d0 100%)", borderRadius: 18, boxShadow: "0 6px 32px rgba(79,70,229,0.10)", padding: 38, textAlign: "center", position: "relative", overflow: "hidden", animation: "fadeIn 0.9s cubic-bezier(.45,1.1,.45,1)" }}>
           <h2 style={{ fontSize: 26, fontWeight: 800, color: "#2563eb", marginBottom: 18, letterSpacing: 0.5, zIndex: 1, position: "relative" }}>
             🌈 Interests & Hobbies
@@ -450,7 +450,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
       </div>
     </>
   );
