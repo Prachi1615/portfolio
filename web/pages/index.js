@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { interests } from "../interests-icons";
 import { skills } from "../skills-icons";
 
+
 const TAG_ORDER = [
   "Education",
   "Experience",
-  "Skill",
+  "Projects", "work", "portfolio",
   "Certification",
-  "Hackathon",
-  "project", "work", "portfolio"
+  "Hackathon"
 ];
 
 function groupByTag(pages) {
@@ -77,22 +77,26 @@ export default function Home() {
             opacity: 0.4,
             zIndex: 0
           }} />
-          <h2 style={{ fontSize: 28, fontWeight: 800, color: "#4f46e5", marginBottom: 10, letterSpacing: 0.5, zIndex: 1, position: "relative" }}>
-            👋 Hi, I'm Prachi!
-          </h2>
-          <div style={{ fontSize: 18, color: "#0284c7", marginBottom: 16, fontWeight: 600, zIndex: 1, position: "relative", letterSpacing: 0.2 }}>
-            Problem Solver · Community Builder · Content Creator
-          </div>
-          <div style={{ color: "#444", fontSize: 17, margin: "0 auto 18px auto", maxWidth: 620, zIndex: 1, position: "relative", lineHeight: 1.7 }}>
-            I’m a problem solver who thrives on innovation—and keeping my inner nerd happy! With a background in <b>AI, software engineering, and cloud technologies</b>, I love building and experimenting with cutting-edge solutions.<br /><br />
-            Beyond coding, I’m passionate about <b>developer communities</b> and knowledge sharing. As an <b>IEEE Chair</b>, <b>Toastmasters President</b>, and <b>GDG Organizer</b>, I actively engage in tech discussions, events, and networking to learn and contribute. I also enjoy writing about <b>AI, cloud, and emerging technologies</b> to break down complex topics for a wider audience.<br /><br />
-            <span style={{ color: "#4f46e5", fontWeight: 700 }}>🏆 Hackathon wins</span> @ Berkeley | ETHGlobal | Women in RAG<br />
-            <span style={{ color: "#0284c7", fontWeight: 700 }}>📢 Tech Enthusiast</span> | AI, Cloud, and Developer Tooling<br />
-            <span style={{ color: "#f59e42", fontWeight: 700 }}>✍️ Content Creator</span> | Blogging on AI, DevOps, and Open Source<br /><br />
-            Outside of tech, I love <b>singing</b>, <b>badminton</b>, <b>pickleball</b>, <b>baking</b>, <b>sketching</b>, <b>photography</b>, <b>travelling</b>, <b>going to events</b>, <b>hackathons</b>, <b>bootcamps</b>, and <b>hosting & organizing events</b>.<br />
-            Life's an adventure—let's make it memorable together!<br /><br />
-            <span style={{ fontWeight: 600, color: "#10b981" }}>Excited to connect with fellow engineers, developers, and tech enthusiasts—let’s build something amazing!</span>
-          </div>
+          <div>
+  <h2 style={{ fontSize: 28, fontWeight: 800, color: "#4f46e5", marginBottom: 10, letterSpacing: 0.5, zIndex: 1, position: "relative" }}>
+    👋 Hi, I'm Prachi!
+  </h2>
+  <div style={{ fontSize: 18, color: "#0284c7", marginBottom: 16, fontWeight: 600, zIndex: 1, position: "relative", letterSpacing: 0.2 }}>
+  Problem Solver · Community Builder · Content Creator
+  </div>
+  <div style={{ color: "#444", fontSize: 17, margin: "0 auto 18px auto", maxWidth: 620, zIndex: 1, position: "relative", lineHeight: 1.7 }}>
+    I’m not just a software engineer—I’m a builder,and relentless optimist driven by the belief that technology can change lives. My journey spans <b>AI, cloud, and distributed systems</b>, but what truly excites me is making a real-world impact and empowering those around me.<br /><br />
+    Whether I’m leading as <b>IEEE Chair</b>, organizing hackathons, or writing about <b>GenAI</b>, I thrive on collaboration and creativity. I turn cutting-edge tech into practical solutions—fast—and love making complex topics accessible (catch me blogging or speaking at meetups!).<br /><br />
+    <span style={{ color: "#4f46e5", fontWeight: 700 }}>🏆 Hackathon Winner</span> @ Berkeley | ETHGlobal | Women in RAG<br />
+    <span style={{ color: "#0284c7", fontWeight: 700 }}>🌐 Community Builder</span> | Toastmasters | GDG | IEEE<br />
+    <span style={{ color: "#f59e42", fontWeight: 700 }}>✍️ Content Creator</span> | AI, DevOps, Open Source<br /><br />
+    Outside of tech, I love <b>singing</b>, <b>badminton</b>, <b>pickleball</b>, <b>baking</b>, <b>sketching</b>, <b>photography</b>, <b>travelling</b>, and <b>hosting events</b>.<br />
+    <span style={{ color: "#10b981", fontWeight: 600 }}>Let’s connect if you want to build something meaningful—or just swap stories about tech, travel, or life!</span>
+  </div>
+
+</div>
+        </section>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <a
             href="https://calendly.com/prachi1615/new-meeting"
             target="_blank"
@@ -111,8 +115,7 @@ export default function Home() {
               textDecoration: "none",
               transition: "background 0.18s, transform 0.15s, box-shadow 0.18s",
               cursor: "pointer",
-              zIndex: 1,
-              position: "relative"
+              zIndex: 1
             }}
             onMouseOver={e => {
               e.currentTarget.style.background = "linear-gradient(90deg,#06b6d4 0%,#4f46e5 100%)";
@@ -127,96 +130,8 @@ export default function Home() {
           >
             📅 Schedule a Call
           </a>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: 28,
-              marginTop: 8,
-              zIndex: 1,
-              position: "relative"
-            }}
-          >
-            {interests.map(({ name, icon }) => (
-              <div
-                key={name}
-                tabIndex={0}
-                style={{
-                  cursor: "pointer",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  background: "rgba(255,255,255,0.95)",
-                  borderRadius: 14,
-                  padding: "18px 22px 12px 22px",
-                  boxShadow: "0 2px 12px rgba(99,102,241,0.13)",
-                  transition: "transform 0.18s, box-shadow 0.18s, background 0.18s",
-                  outline: "none",
-                  willChange: "transform"
-                }}
-                onMouseOver={e => {
-                  e.currentTarget.style.transform = "translateY(-8px) scale(1.09)";
-                  e.currentTarget.style.boxShadow = "0 12px 36px rgba(99,102,241,0.18)";
-                  e.currentTarget.style.background = "#f0f4ff";
-                  e.currentTarget.firstChild.style.animation = "bounce 0.5s";
-                }}
-                onMouseOut={e => {
-                  e.currentTarget.style.transform = "none";
-                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(99,102,241,0.13)";
-                  e.currentTarget.style.background = "rgba(255,255,255,0.95)";
-                  e.currentTarget.firstChild.style.animation = "none";
-                }}
-                onFocus={e => {
-                  e.currentTarget.style.transform = "translateY(-8px) scale(1.09)";
-                  e.currentTarget.style.boxShadow = "0 12px 36px rgba(99,102,241,0.18)";
-                  e.currentTarget.style.background = "#f0f4ff";
-                  e.currentTarget.firstChild.style.animation = "bounce 0.5s";
-                }}
-                onBlur={e => {
-                  e.currentTarget.style.transform = "none";
-                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(99,102,241,0.13)";
-                  e.currentTarget.style.background = "rgba(255,255,255,0.95)";
-                  e.currentTarget.firstChild.style.animation = "none";
-                }}
-                onClick={e => {
-                  // Confetti burst effect
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const confetti = document.createElement("div");
-                  confetti.style.position = "fixed";
-                  confetti.style.left = rect.left + rect.width/2 + "px";
-                  confetti.style.top = rect.top + rect.height/2 + "px";
-                  confetti.style.pointerEvents = "none";
-                  confetti.style.zIndex = 9999;
-                  for (let i = 0; i < 18; i++) {
-                    const dot = document.createElement("div");
-                    dot.style.position = "absolute";
-                    dot.style.width = "10px";
-                    dot.style.height = "10px";
-                    dot.style.borderRadius = "50%";
-                    dot.style.background = `hsl(${Math.random()*360},90%,70%)`;
-                    dot.style.left = "-5px";
-                    dot.style.top = "-5px";
-                    dot.style.transform = `translate(0,0)`;
-                    dot.style.transition = "transform 0.7s cubic-bezier(.2,1.2,.3,1)";
-                    confetti.appendChild(dot);
-                    setTimeout(() => {
-                      const angle = (i/18)*2*Math.PI;
-                      const dist = 50+Math.random()*30;
-                      dot.style.transform = `translate(${Math.cos(angle)*dist}px,${Math.sin(angle)*dist}px)`;
-                      dot.style.opacity = 0;
-                    }, 30);
-                  }
-                  document.body.appendChild(confetti);
-                  setTimeout(() => { confetti.remove(); }, 900);
-                }}
-              >
-                <span style={{ display: "inline-block" }}>{icon}</span>
-                <span style={{ marginTop: 10, fontSize: 16, fontWeight: 700, color: "#4f46e5", letterSpacing: 0.2 }}>{name}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+        </div>
+
         {/* Technical Skills Section */}
         <section
           style={{
@@ -293,7 +208,24 @@ export default function Home() {
             ))}
           </div>
         </section>
-        {TAG_ORDER.map((tag) => (
+        {/* Technical Skills Section */}
+        <section
+          style={{
+            margin: "0 auto 36px auto",
+            background: "linear-gradient(120deg, #e0e7ff 0%, #bae6fd 50%, #bbf7d0 100%)",
+            borderRadius: 18,
+            boxShadow: "0 6px 32px rgba(79,70,229,0.09)",
+            padding: 32,
+            textAlign: "center",
+            position: "relative",
+            overflow: "hidden",
+            animation: "fadeIn 0.9s cubic-bezier(.45,1.1,.45,1)"
+          }}
+        >
+          
+        </section>
+
+        {TAG_ORDER.filter(tag => tag !== 'Skill').map((tag) => (
           groups[tag] && (
             <div key={tag} style={{ marginBottom: 36 }}>
               <h2 style={{ fontSize: 24, fontWeight: 700, color: "#4f46e5", marginBottom: 16, borderBottom: "1px solid #e5e7eb", paddingBottom: 4 }}>{tag}</h2>
@@ -331,8 +263,68 @@ export default function Home() {
             </div>
           )
         ))}
+        {/* --- Interests & Hobbies section now at the bottom --- */}
+        <section style={{ margin: "56px auto 0 auto", background: "linear-gradient(120deg, #e0e7ff 0%, #bae6fd 50%, #bbf7d0 100%)", borderRadius: 18, boxShadow: "0 6px 32px rgba(79,70,229,0.10)", padding: 38, textAlign: "center", position: "relative", overflow: "hidden", animation: "fadeIn 0.9s cubic-bezier(.45,1.1,.45,1)" }}>
+          <h2 style={{ fontSize: 26, fontWeight: 800, color: "#2563eb", marginBottom: 18, letterSpacing: 0.5, zIndex: 1, position: "relative" }}>
+            🌈 Interests & Hobbies
+          </h2>
+          <div style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: 28,
+            marginTop: 8,
+            zIndex: 1,
+            position: "relative"
+          }}>
+            {interests.map(({ name, icon }) => (
+              <div
+                key={name}
+                tabIndex={0}
+                style={{
+                  cursor: "pointer",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  background: "rgba(255,255,255,0.95)",
+                  borderRadius: 14,
+                  padding: "18px 22px 12px 22px",
+                  boxShadow: "0 2px 12px rgba(99,102,241,0.13)",
+                  transition: "transform 0.18s, box-shadow 0.18s, background 0.18s",
+                  outline: "none",
+                  willChange: "transform"
+                }}
+                onMouseOver={e => {
+                  e.currentTarget.style.transform = "translateY(-8px) scale(1.09)";
+                  e.currentTarget.style.boxShadow = "0 12px 36px rgba(99,102,241,0.18)";
+                  e.currentTarget.style.background = "#f0f4ff";
+                  e.currentTarget.firstChild.style.animation = "bounce 0.5s";
+                }}
+                onMouseOut={e => {
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(99,102,241,0.13)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.95)";
+                  e.currentTarget.firstChild.style.animation = "none";
+                }}
+                onFocus={e => {
+                  e.currentTarget.style.transform = "translateY(-8px) scale(1.09)";
+                  e.currentTarget.style.boxShadow = "0 12px 36px rgba(99,102,241,0.18)";
+                  e.currentTarget.style.background = "#f0f4ff";
+                  e.currentTarget.firstChild.style.animation = "bounce 0.5s";
+                }}
+                onBlur={e => {
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.boxShadow = "0 2px 12px rgba(99,102,241,0.13)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.95)";
+                }}
+              >
+                <span style={{ fontSize: 38, marginBottom: 10 }}>{icon}</span>
+                <span style={{ fontWeight: 700, color: "#3730a3", fontSize: 20 }}>{name}</span>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </>
   );
 }
-

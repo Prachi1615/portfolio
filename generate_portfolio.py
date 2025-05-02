@@ -108,13 +108,13 @@ def run_all():
 
     # Bulk import projects from LinkedIn resume
     default_tags = os.getenv("DEFAULT_TAGS", "").split(",") if os.getenv("DEFAULT_TAGS") else []
-    projects = [
+    Projects = [
         {"title": "Community Health Index Analysis (Omdena)", "description": "Utilized XGBoost to analyze public health data in San Jose and develop a predictive health index for San Jose, supporting improved resource allocation and decision-making.", "tags": default_tags},
         {"title": "Customer Support System", "description": "Designed an AI-driven support system leveraging fine-tuned GPT models and LangChain for retrieval-augmented generation (RAG), resulting in a 50% reduction in customer response time.", "tags": default_tags},
         {"title": "Sarcopenia Prediction System", "description": "Built a machine learning model using Random Forest to analyze clinical data for early detection of sarcopenia, achieving a prediction accuracy of 78%, enabling proactive healthcare interventions.", "tags": default_tags},
         {"title": "Spring-Boot Yeoman-Generator", "description": "Automated YAML-to-Spring scaffolding, reducing boilerplate setup by 70% and improving developer productivity with a React.js-based interface.", "tags": default_tags}
     ]
-    for proj in projects:
+    for proj in Projects:
         page = generator.create_portfolio_page(proj['title'], proj['description'], proj['tags'])
         logging.info(f"Created project page: {page['url']}")
 
