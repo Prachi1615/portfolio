@@ -28,7 +28,7 @@ export const skills = [
   { category: "Data Science", name: "Pandas", icon: (<svg width="36" height="36"><rect width="36" height="36" rx="8" fill="#fff"/><text x="6" y="26" fontSize="13" fill="#222">Pandas</text></svg>) },
   { category: "Data Science", name: "NumPy", icon: (<svg width="36" height="36"><rect width="36" height="36" rx="8" fill="#e0e7ff"/><text x="7" y="26" fontSize="13" fill="#3730a3">NumPy</text></svg>) },
   { category: "Data Science", name: "Matplotlib", icon: (<svg width="36" height="36"><rect width="36" height="36" rx="8" fill="#fca5a5"/><text x="2" y="26" fontSize="13" fill="#b91c1c">Mpl</text></svg>) },
-  { category: "Data Science", name: "SQL (BigQuery, PostgreSQL)", icon: (<svg width="36" height="36"><rect width="36" height="36" rx="8" fill="#2563eb"/><text x="2" y="26" fontSize="13" fill="#fff">SQL</text></svg>) },
+  { category: "Data Science", name: "BigQuery, PostgreSQL, MongoDB", icon: (<svg width="36" height="36"><rect width="36" height="36" rx="8" fill="#2563eb"/><text x="2" y="26" fontSize="13" fill="#fff">SQL</text></svg>) },
   { category: "Data Science", name: "PySpark", icon: (<svg width="36" height="36"><rect width="36" height="36" rx="8" fill="#f59e42"/><text x="2" y="26" fontSize="13" fill="#fff">PySpark</text></svg>) },
 
   // DevOps and CI/CD

@@ -1,31 +1,65 @@
-## Getting Started
+# Notion-Powered Portfolio
 
-First, run the development server:
+A modern, customizable portfolio site built with Next.js and React, featuring dynamic content fetched from your Notion database.
 
+## Features
+- **Dynamic Portfolio:** Content is pulled from Notion via API and grouped by tags (Projects, Experience, Education, etc.)
+- **Modern UI:** Hero/profile section with animated accents, wavy SVG divider, and social icons
+- **Responsive:** Looks great on all devices
+- **Easy Theming:** Customize colors, profile image, and more
+- **Python Script:** Optionally generate/update Notion content using `generate_portfolio.py`
+
+## Quick Start
+
+### 1. Clone & Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Prachi1615/portfolio.git
+cd notion-portfolio/web
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Set Up Environment Variables
+Create a `.env.local` file in `web/` with:
+```
+NOTION_TOKEN=your_notion_integration_token
+PORTFOLIO_DATABASE_ID=your_notion_database_id
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3. Start the Dev Server
+```bash
+npm run dev
+```
+Visit [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. (Optional) Generate Notion Content
+If you want to programmatically generate/update your Notion portfolio:
+```bash
+cd ..
+pip install -r requirements.txt
+python generate_portfolio.py
+```
 
-## Learn More
+## Deployment
+- Deploy easily to Vercel, Netlify, or any static hosting supporting Next.js
+- Make sure your environment variables are set on your deployment platform
 
-To learn more about Next.js, take a look at the following resources:
+## Customization
+- Change your profile image: replace `web/public/image.png`
+- Edit hero section, bio, and social links in `web/pages/index.js`
+- Adjust tag grouping/order in `web/pages/index.js` (`TAG_ORDER`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Security
+- All external links use `rel="noopener noreferrer"`
+- Environment variables are required for Notion API access
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Credits
+- Built by Prachi Sethi
+- Powered by [Next.js](https://nextjs.org/) and [Notion API](https://developers.notion.com/)
+
+---
+
+_Questions? PRs welcome!_
+
 
 # portfolio
 =======
