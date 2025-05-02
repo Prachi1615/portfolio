@@ -201,7 +201,7 @@ export default function Home() {
     <span style={{ color: "#4f46e5", fontWeight: 700 }}>🏆 Hackathon Winner</span> @ Berkeley | ETHGlobal | Women in RAG<br />
     <span style={{ color: "#0284c7", fontWeight: 700 }}>🌐 Community Builder</span> | Toastmasters | GDG | IEEE<br />
     <span style={{ color: "#f59e42", fontWeight: 700 }}>✍️ Content Creator</span> | AI, DevOps, Open Source<br /><br />
-    Outside of tech, I love <b>singing</b>, <b>badminton</b>, <b>pickleball</b>, <b>baking</b>, <b>sketching</b>, <b>photography</b>, <b>travelling</b>, and <b>hosting events</b>.<br />
+    Outside of tech, I love <b>singing</b>, <b>badminton</b>, <b>pickleball</b>, <b>baking</b>, <b>sketching</b>, <b>photography</b>,and <b>travelling</b>.<br />
     <span style={{ color: "#10b981", fontWeight: 600 }}>Let’s connect if you want to build something meaningful—or just swap stories about tech, travel, or life!</span>
   </div>
 
